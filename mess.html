@@ -60,7 +60,7 @@
         ];
 
         // Construct the full path for the corresponding photo based on the selected day
-        var photoUrl = '/images/' + photoFilenames[dayIndex];
+        var photoUrl = photoFilenames[dayIndex];
         document.getElementById('menuContainer').innerHTML = '<img src="' + photoUrl + '" alt="Daily Menu">';
 
         // Remove the 'currentDay' class from all navigation links
