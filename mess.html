@@ -12,6 +12,21 @@
         img {
             max-width: 100%;
             height: auto;
+            margin-top: 20px;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333333;
+            font-weight: bold;
+            padding: 5px;
+        }
+        nav a.currentDay {
+            background-color: #787fd3;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -19,24 +34,46 @@
 
 <h1>Today's Menu</h1>
 
+<nav>
+    <a href="#" onclick="showMenu(0)" id="day0">Sunday</a>
+    <a href="#" onclick="showMenu(1)" id="day1">Monday</a>
+    <a href="#" onclick="showMenu(2)" id="day2">Tuesday</a>
+    <a href="#" onclick="showMenu(3)" id="day3">Wednesday</a>
+    <a href="#" onclick="showMenu(4)" id="day4">Thursday</a>
+    <a href="#" onclick="showMenu(5)" id="day5">Friday</a>
+    <a href="#" onclick="showMenu(6)" id="day6">Saturday</a>
+</nav>
+
+<div id="menuContainer"></div>
+
 <script>
-    // Get the current day (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
-    var currentDay = new Date().getDay();
+    function showMenu(dayIndex) {
+        // Define an array of photo URLs corresponding to each day
+        var photoUrls = [
+            '/images/sunday.jpg',
+            '/images/monday.jpg',
+            '/images/tuesday.jpg',
+            '/images/wednesday.jpg',
+            '/images/thursday.jpg',
+            '/images/friday.jpg',
+            '/images/saturday.jpg'
+        ];
 
-    // Define an array of photo URLs corresponding to each day
-    var photoUrls = [
-        'sunday.jpg',
-        'monday.jpg',
-        'tuesday.jpg',
-        'wednesday.jpg',
-        'thursday.jpg',
-        'friday.jpg',
-        'saturday.jpg'
-    ];
+        // Display the corresponding photo based on the selected day
+        var photoUrl = photoUrls[dayIndex];
+        document.getElementById('menuContainer').innerHTML = '<img src="' + photoUrl + '" alt="Daily Menu">';
 
-    // Display the corresponding photo based on the current day
-    var photoUrl = photoUrls[currentDay];
-    document.write('<img src="' + photoUrl + '" alt="Daily Photo">');
+        // Remove the 'currentDay' class from all navigation links
+        for (var i = 0; i < 7; i++) {
+            document.getElementById('day' + i).classList.remove('currentDay');
+        }
+
+        // Add the 'currentDay' class to the selected day's navigation link
+        document.getElementById('day' + dayIndex).classList.add('currentDay');
+    }
+
+    // Show the menu for the current day initially
+    showMenu(new Date().getDay());
 </script>
 
 </body>
