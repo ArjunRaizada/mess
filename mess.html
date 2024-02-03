@@ -48,19 +48,19 @@
 
 <script>
     function showMenu(dayIndex) {
-        // Define an array of photo URLs corresponding to each day
-        var photoUrls = [
-            '/images/sunday.jpg',
-            '/images/monday.jpg',
-            '/images/tuesday.jpg',
-            '/images/wednesday.jpg',
-            '/images/thursday.jpg',
-            '/images/friday.jpg',
-            '/images/saturday.jpg'
+        // Define an array of photo filenames corresponding to each day
+        var photoFilenames = [
+            'sunday.jpg',
+            'monday.jpg',
+            'tuesday.jpg',
+            'wednesday.jpg',
+            'thursday.jpg',
+            'friday.jpg',
+            'saturday.jpg'
         ];
 
-        // Display the corresponding photo based on the selected day
-        var photoUrl = photoUrls[dayIndex];
+        // Construct the full path for the corresponding photo based on the selected day
+        var photoUrl = '/images/' + photoFilenames[dayIndex];
         document.getElementById('menuContainer').innerHTML = '<img src="' + photoUrl + '" alt="Daily Menu">';
 
         // Remove the 'currentDay' class from all navigation links
