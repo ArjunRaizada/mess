@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Today's Menu</h1>
+
+<script>
+    // Get the current day (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+    var currentDay = new Date().getDay();
+
+    // Define an array of photo URLs corresponding to each day
+    var photoUrls = [
+        '/images/sunday.jpg',
+        '/images/monday.jpg',
+        '/images/tuesday.jpg',
+        '/images/wednesday.jpg',
+        '/images/thursday.jpg',
+        '/images/friday.jpg',
+        '/images/saturday.jpg'
+    ];
+
+    // Display the corresponding photo based on the current day
+    var photoUrl = photoUrls[currentDay];
+    document.write('<img src="' + photoUrl + '" alt="Daily Photo">');
+</script>
+
+</body>
+</html>
